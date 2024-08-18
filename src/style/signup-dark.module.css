@@ -1,0 +1,24 @@
+.authContainer {
+    background-color: #121212; /* Dark background color */
+    color: #e0e0e0; /* Light text color */
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  .heading {
+    color: #e0e0e0; /* Light text color */
+  }
+  
+  .authForm {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .button {
+    background-color: #1f1f1f; /* Dark button background */
+    color: #e0e0e0; /* Light button text color */
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
