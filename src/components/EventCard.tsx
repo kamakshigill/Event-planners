@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { Event } from '../types'; // Adjust the path according to your project structure
-import styles from '../styles/EventCard.module.css'; // Ensure you have this CSS file
+import styles from '../style/EventCard.module.css'; // Ensure you have this CSS file
 
 interface EventCardProps {
   event: Event;

@@ -1,23 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
+import Link from 'next/link'; // Import Link from next/link
 import styles from '../style/welcome.module.css';
-import darkStyles from '../style/welcome-dark.module.css';
 
-const Welcome: React.FC = () => {
-  const [darkMode, setDarkMode] = useState(true);
-
+const HomePage: React.FC = () => {
   return (
-    <div className={darkMode ? darkStyles.container : styles.container}>
-      <h1 className={darkMode ? darkStyles.heading : styles.heading}>Welcome to Event Management Platform</h1>
-      <p className={darkMode ? darkStyles.paragraph : styles.paragraph}>Manage and create events with ease. Sign in or sign up to get started!</p>
+    <div className={styles.container}>
+      <h1>Welcome to Event Management Platform</h1>
+      <p>Manage and create events with ease. Sign in or sign up to get started!</p>
       <div>
-      <a href="/auth/signin" className={darkMode ? darkStyles.button : styles.button}>Sign In</a>
-      <a href="/auth/signup" className={darkMode ? darkStyles.button : styles.button}>Sign Up</a>
+        <Link href="/auth/signin">Sign In</Link> {/* Use Link component */}
+        <Link href="/auth/signup">Sign Up</Link>   {/* Use Link component */}
       </div>
-      <button onClick={() => setDarkMode(!darkMode)}>
-        Toggle {darkMode ? 'Light' : 'Dark'} Mode
-      </button>
     </div>
   );
 };
 
-export default Welcome;
+export default HomePage;
