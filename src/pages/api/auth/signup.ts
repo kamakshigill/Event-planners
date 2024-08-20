@@ -1,7 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { PrismaClient } from '@prisma/client';
 import bcrypt from 'bcrypt';
-import { User } from '../../../types'; // Adjust the path as needed
 
 const prisma = new PrismaClient();
 
@@ -9,14 +8,15 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   if (req.method === 'POST') {
     const { email, password, name } = req.body;
 
-    if (!email || !password) {
-      return res.status(400).json({ error: 'Email and password are required' });
+    if (!email || !password || !name) {
+      return res.status(400).json({ error: 'Email, password, and name are required' });
     }
 
     try {
       const hashedPassword = await bcrypt.hash(password, 10);
 
-      const user: User = await prisma.user.create({
+      // No need to specify the type here; TypeScript will infer it
+      const user = await prisma.user.create({
         data: {
           email,
           password: hashedPassword,

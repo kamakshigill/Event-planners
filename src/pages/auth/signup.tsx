@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import styles from '../../style/signup.module.css';
-import darkStyles from '../../style/signup-dark.module.css'; // Ensure this path is correct
+import darkStyles from '../../style/signup-dark.module.css'; 
 
 const SignUp: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -15,7 +15,7 @@ const SignUp: React.FC = () => {
       const response = await axios.post('/api/auth/signup', { email, password, name });
       if (response.status === 200) {
         alert('Sign-up successful!');
-        // Redirect or handle post-sign-up actions here
+        
       }
     } catch (error) {
       console.error(error);
